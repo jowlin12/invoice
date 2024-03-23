@@ -272,3 +272,10 @@ tr:hover .cut {
 .small-text {
     font-size: 60%;
 }
+.mediano {
+    font-size: 12px;
+}
+.negrilla {
+	font-weight: bold;
+	font-size: 1.2em;
+}
