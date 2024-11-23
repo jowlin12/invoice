@@ -152,12 +152,18 @@ article address {
 }
 
 /* table meta & balance */
-table.meta,
+table.meta{
+    float: left;
+    width: 36%;
+}
+table.meta2{
+    float: right;
+    width: 36%;
+}
 table.balance {
     float: right;
     width: 36%;
 }
-
 table.meta:after,
 table.balance:after {
     content: "";
