@@ -167,33 +167,33 @@ article address {
 .client-info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.2em;
-    gap: 1.2em;
+    margin-bottom: 1em;
+    gap: 1em;
 }
 
 .info-section {
     flex: 1;
     background: white;
-    padding: 0.8em;
-    border-radius: 0.5em;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 0.6em;
+    border-radius: 0.4em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .info-section h2 {
     color: #000;
-    font-size: 0.95em;
+    font-size: 0.9em;
     font-weight: 600;
-    margin-bottom: 0.5em;
-    padding-bottom: 0.3em;
-    border-bottom: 2px solid var(--border);
+    margin-bottom: 0.4em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid var(--border);
     text-align: center;
     background: white;
 }
 
 .info-section p {
-    margin: 0.3em 0;
-    line-height: 1.3;
-    font-size: 0.9em;
+    margin: 0.25em 0;
+    line-height: 1.2;
+    font-size: 0.85em;
 }
 
 .info-section strong {
@@ -208,14 +208,14 @@ article address {
 
 /* Totales y balance */
 .balance-section {
-    margin-top: 0.8em;
+    margin-top: 0.6em;
     text-align: right;
-    padding: 1em;
+    padding: 0.8em;
     background: var(--background);
     border-radius: 0.5em;
     border-right: 3px solid var(--success);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    width: 35%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 32%;
     margin-left: auto;
 }
 
@@ -223,9 +223,9 @@ article address {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 0.3em 0;
+    margin: 0.25em 0;
     color: var(--text);
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .balance-item strong {
@@ -235,10 +235,10 @@ article address {
 }
 
 .total-amount {
-    margin-top: 0.6em;
-    padding-top: 0.6em;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
     border-top: 2px solid var(--border);
-    font-size: 1.4em;
+    font-size: 1.3em;
     color: var(--success);
     font-weight: 700;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.05);
@@ -348,26 +348,24 @@ aside {
 }
 
 aside h1 {
-    color: var(--text);
+    color: #000;
     margin: 0;
-    padding: 0.3em 1em;
-    font-size: 1.4em;
+    padding: 0.2em 0;
+    font-size: 1.2em;
     font-weight: 600;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: white;
-    border-radius: 0 0 0.5em 0.5em;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: white;
+    border-bottom: 2px solid var(--border);
 }
 
 .mediano {
-    font-size: 0.9em;
-    line-height: 1.6;
+    font-size: 0.85em;
+    line-height: 1.4;
     color: var(--text);
     background: var(--background);
-    padding: 1.5em;
-    border-radius: 0.5em;
-    border-left: 3px solid var(--primary);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    padding: 1em;
+    border-radius: 0.4em;
+    border-left: 2px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     text-align: left;
 }
 
