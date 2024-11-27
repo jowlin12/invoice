@@ -24,7 +24,7 @@
     padding: 0;
     text-decoration: none;
     vertical-align: top;
-}
+}                
 
 *[contenteditable] {
     border-radius: 0.25em;
@@ -184,10 +184,7 @@ article address {
     font-size: 0.9em;
     font-weight: 600;
     margin-bottom: 0.4em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid var(--border);
     text-align: center;
-    background: white;
 }
 
 .info-section p {
@@ -209,23 +206,17 @@ article address {
 /* Totales y balance */
 .balance-section {
     margin-top: 0.6em;
-    text-align: right;
     padding: 0.8em;
-    background: var(--background);
-    border-radius: 0.5em;
-    border-right: 3px solid var(--success);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     width: 32%;
-    margin-left: auto;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 .balance-item {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     margin: 0.25em 0;
-    color: var(--text);
     font-size: 1em;
+    color: #000;
 }
 
 .balance-item strong {
@@ -237,11 +228,9 @@ article address {
 .total-amount {
     margin-top: 0.5em;
     padding-top: 0.5em;
-    border-top: 2px solid var(--border);
+    border-top: 1px solid var(--border);
     font-size: 1.3em;
-    color: var(--success);
-    font-weight: 700;
-    text-shadow: 1px 1px 0 rgba(0,0,0,0.05);
+    color: #000;
 }
 
 .total-amount strong {
@@ -282,9 +271,9 @@ td {
 
 /* table items */
 table.inventory {
+    margin: 1.2em 0;
     clear: both;
     width: 100%;
-    margin: 1em 0;
     border-collapse: collapse;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     border-radius: 0.5em;
@@ -292,12 +281,12 @@ table.inventory {
 }
 
 table.inventory th {
-    background: white;
+    background: none;
     color: #000;
     font-weight: 600;
     text-align: center;
     padding: 0.5em;
-    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     font-size: 0.9em;
 }
 
@@ -342,8 +331,7 @@ table.inventory tr:hover td {
 aside {
     margin: 0;
     padding: 0;
-    margin-bottom: 0.8em;
-    position: relative;
+    margin-bottom: 0.6em;
     text-align: center;
 }
 
@@ -353,8 +341,7 @@ aside h1 {
     padding: 0.2em 0;
     font-size: 1.2em;
     font-weight: 600;
-    background: white;
-    border-bottom: 2px solid var(--border);
+    display: inline-block;
 }
 
 .mediano {
