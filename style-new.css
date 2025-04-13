@@ -9,29 +9,30 @@
 }
 
 html {
-    font-size: 10pt; /* Tamaño base para impresión */
-    line-height: 1.5;
-    background-color: #f8f9fa; /* Color de fondo suave para pantalla */
-    -webkit-print-color-adjust: exact; /* Asegurar colores en impresión (Chrome/Safari) */
-    color-adjust: exact; /* Asegurar colores en impresión (Firefox) */
+    font-size: 10.5pt;
+    line-height: 1.6;
+    background-color: #f8f9fa; /* Gris estándar muy claro */
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente limpia y profesional */
-    color: #333; /* Color de texto principal */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #495057; /* Gris oscuro estándar para texto */
     background-color: #fff; /* Fondo blanco para el contenido */
     margin: 0 auto; /* Centrar en pantalla */
     padding: 0.75in; /* Márgenes tipo documento */
     max-width: 8.5in; /* Ancho máximo similar a A4/Carta */
     min-height: 11in; /* Altura mínima */
-    box-shadow: 0 0 0.5in -0.1in rgba(0, 0, 0, 0.2); /* Sombra suave en pantalla */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra un poco más difusa */
     position: relative; /* Para posicionar elementos absolutos si es necesario */
+    border-radius: 8px; /* Esquinas redondeadas para el contenedor principal */
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     margin-bottom: 0.5em;
-    color: #1a2b48; /* Azul oscuro para títulos */
+    color: #343a40; /* Gris carbón para títulos */
 }
 
 h1 {
@@ -64,7 +65,7 @@ strong {
     align-items: flex-start; /* Alinear arriba */
     margin-bottom: 2em;
     padding-bottom: 1em;
-    border-bottom: 2px solid #1a2b48; /* Línea gruesa separadora */
+    border-bottom: 2px solid #343a40; /* Gris carbón para línea separadora */
 }
 
 .company-info {
@@ -84,28 +85,33 @@ strong {
     font-size: 0.9em;
     line-height: 1.4;
 }
+.company-address strong {
+    display: block; /* Asegura que el nombre esté en su propia línea */
+    margin-bottom: 0.2em;
+}
 
 .invoice-title {
     text-align: right;
 }
 
 .invoice-title h1 {
-    color: #1a2b48;
+    color: #343a40; /* Gris carbón */
     margin: 0;
 }
 
 .invoice-number,
 .invoice-date {
     font-size: 0.9em;
-    color: #555;
+    color: #6c757d; /* Gris estándar */
 }
 
 .invoice-number span,
 .invoice-date span {
     font-weight: bold;
-    color: #333;
+    color: #495057;
 }
 
+/* Eliminado: .invoice-validity styles */
 
 /* --- Información Cliente y Vehículo --- */
 .customer-vehicle-info {
@@ -115,16 +121,18 @@ strong {
     gap: 2em; /* Espacio entre columnas */
 }
 
-.customer-details,
+.customer-details {
+    width: 35%; /* Más estrecho para el cliente */
+}
 .vehicle-details {
-    width: 48%; /* Aproximadamente mitad del espacio */
+    width: 60%; /* Más ancho para el vehículo */
 }
 
 .customer-details h2,
 .vehicle-details h2 {
     font-size: 1.1em;
-    margin-top: 0; /* Sin margen superior para estos h2 */
-    border-bottom-color: #adb5bd; /* Gris más claro para esta línea */
+    margin-top: 0;
+    border-bottom-color: #ced4da; /* Gris más claro */
 }
 
 .vehicle-details p {
@@ -136,30 +144,41 @@ strong {
     margin-bottom: 2em;
 }
 
+/* Estilos para el contenedor de la tabla redondeada */
+.table-wrapper {
+    border-radius: 6px; /* Redondez más sutil */
+    overflow: hidden;
+    border: 1px solid #dee2e6; /* Borde gris estándar */
+    margin-top: 1em;
+}
+
 .items-table {
     width: 100%;
-    border-collapse: collapse; /* Bordes unidos */
+    border-collapse: collapse;
     font-size: 0.9em;
+    /* Quitamos bordes individuales de la tabla, el wrapper se encarga */
+    border: none;
 }
 
 .items-table th,
 .items-table td {
-    border: 0px solid #dee2e6; /* Eliminamos borde por defecto */
-    border-bottom: 1px solid #dee2e6; /* Borde solo inferior */
-    padding: 0.8em 0.8em; /* Más padding vertical */
+    border-bottom: 1px solid #dee2e6; /* Borde inferior gris estándar */
+    padding: 0.8em 0.8em;
     text-align: left;
     vertical-align: top;
+    border-left: none; /* Asegurar no bordes laterales */
+    border-right: none;
 }
 
 .items-table th {
-    background-color: #f8f9fa; /* Fondo muy claro */
+    background-color: #e9ecef; /* Gris claro estándar */
     font-weight: bold;
-    color: #343a40; /* Texto más oscuro */
-    text-transform: uppercase; /* Mayúsculas para destacar */
-    font-size: 0.85em; /* Ligeramente más pequeño */
+    color: #495057; /* Gris oscuro estándar */
+    text-transform: uppercase;
+    font-size: 0.85em;
     letter-spacing: 0.05em;
-    border-bottom-width: 2px; /* Borde inferior más grueso */
-    border-color: #adb5bd; /* Color del borde inferior */
+    border-bottom: 2px solid #adb5bd; /* Borde inferior gris medio */
+    border-top: none;
 }
 
 .items-table .col-qty {
@@ -176,19 +195,21 @@ strong {
     text-align: right;
 }
 
-/* Eliminamos el rayado alterno para un look más limpio con bordes horizontales */
-/* .items-table tbody tr:nth-child(odd) {
-    background-color: #f8f9fa;
-} */
+/* Restauramos un rayado muy sutil si se desea, o mantener sin él */
+ .items-table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa; /* Rayado muy sutil */
+ }
 
 .items-table tbody td {
-    color: #495057;
-    /* Asegurar que la última fila no tenga borde inferior si se prefiere */
+    color: #495057; /* Gris oscuro estándar */
 }
 
-.items-table tbody tr:last-child td {
-    border-bottom: none; /* Quitar borde inferior de la última fila */
-}
+/* Ajuste: La última fila SÍ debe tener borde si usamos wrapper,
+   pero el wrapper lo oculta si es necesario.
+   Si queremos quitarlo explícitamente: */
+ .items-table tbody tr:last-child td {
+     border-bottom: none;
+ }
 
 /* --- Tabla de Totales --- */
 .invoice-summary {
@@ -212,21 +233,21 @@ strong {
 .totals-table th {
     text-align: left;
     font-weight: normal;
-    color: #555;
+    color: #667; /* Gris medio */
     width: 60%;
 }
 
 .totals-table td {
     font-weight: bold;
-    color: #333;
+    color: #444; /* Gris oscuro */
 }
 
 .totals-table .total-row th,
 .totals-table .total-row td {
     font-size: 1.1em;
     font-weight: bold;
-    color: #1a2b48;
-    border-top: 2px solid #1a2b48; /* Línea gruesa antes del total */
+    color: #343a40; /* Gris carbón */
+    border-top: 2px solid #343a40; /* Gris carbón */
     padding-top: 0.8em;
 }
 
@@ -234,10 +255,11 @@ strong {
 .observations {
     margin-bottom: 2em;
     font-size: 0.9em;
-    background-color: #f8f9fa;
-    padding: 1em;
-    border-radius: 4px;
-    border: 1px solid #e9ecef;
+    background-color: #f8f9fa; /* Fondo gris muy claro */
+    padding: 1em 1.2em;
+    border-radius: 6px;
+    border: 1px solid #e9ecef; /* Borde gris claro */
+    color: #495057; /* Texto gris oscuro estándar */
 }
 
 .observations h2 {
@@ -250,14 +272,14 @@ strong {
 .notes-section {
     margin-top: 3em;
     padding-top: 1em;
-    border-top: 1px solid #dee2e6; /* Línea separadora sutil */
+    border-top: 1px solid #ced4da; /* Gris claro */
     font-size: 0.85em;
-    color: #6c757d; /* Gris más claro para notas */
+    color: #6c757d;
 }
 
 .notes-section h2 {
     font-size: 1em;
-    color: #495057;
+    color: #495057; /* Mantenemos gris oscuro para este título */
     border-bottom: none;
     margin-bottom: 0.8em;
 }
@@ -269,6 +291,8 @@ strong {
     border-left: 3px solid #adb5bd;
 }
 
+/* Eliminado: .payment-terms styles */
+
 .bank-details p {
     margin-bottom: 0.2em;
 }
@@ -277,8 +301,10 @@ strong {
     text-align: center;
     margin-top: 2em;
     font-style: italic;
-    color: #495057;
+    color: #6c757d;
 }
+
+/* Eliminado: .signature-area styles */
 
 /* --- Estilos de Impresión --- */
 @media print {
