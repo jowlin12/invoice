@@ -1,402 +1,360 @@
-/* Variables y configuración base */
-:root {
-    --primary: #4299E1;
-    --primary-light: #63B3ED;
-    --primary-dark: #3182CE;
-    --accent: #4FD1C5;
-    --background: #F7FAFC;
-    --border: #E2E8F0;
-    --text: #2D3748;
-    --text-light: #718096;
-    --success: #48BB78;
-}
-
-/* reset */
-* {
-    box-sizing: content-box;
-    color: inherit;
-    font: inherit;
-    line-height: inherit;
-    list-style: none;
+/* --- Reset Básico y Configuración Global --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    vertical-align: top;
-}                
-
-*[contenteditable] {
-    border-radius: 0.25em;
-    min-width: 1em;
-    outline: 0;
-    cursor: pointer;
+    font-family: inherit; /* Heredar fuente definida en body */
 }
 
-*[contenteditable]:hover,
-*[contenteditable]:focus,
-td:hover *[contenteditable],
-td:focus *[contenteditable],
-img.hover {
-    background: #e8f0fe;
-    box-shadow: 0 0 1em 0.5em rgba(66, 133, 244, 0.1);
-}
-
-span[contenteditable] {
-    display: inline-block;
-}
-
-/* heading */
-h1 {
-    font: bold 100% sans-serif;
-    letter-spacing: 0.2em;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 0.5em auto;
-    color: var(--text);
-    position: relative;
-    display: inline-block;
-    padding: 0.5em 2em;
-    background: white;
-    border-radius: 50px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-aside span h1 {
-    font-size: 1.4em;
-    margin-bottom: 1em;
-}
-
-/* page */
 html {
-    font: 16px/1 'Segoe UI', sans-serif;
-    overflow: auto;
-    padding: 0.15in;
-    background: #999;
-    cursor: default;
+    font-size: 10pt; /* Tamaño base para impresión */
+    line-height: 1.5;
+    background-color: #f8f9fa; /* Color de fondo suave para pantalla */
+    -webkit-print-color-adjust: exact; /* Asegurar colores en impresión (Chrome/Safari) */
+    color-adjust: exact; /* Asegurar colores en impresión (Firefox) */
 }
 
 body {
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 0.15in 0.3in 0.3in;
-    background: #FFF;
-    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
-    position: relative;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente limpia y profesional */
+    color: #333; /* Color de texto principal */
+    background-color: #fff; /* Fondo blanco para el contenido */
+    margin: 0 auto; /* Centrar en pantalla */
+    padding: 0.75in; /* Márgenes tipo documento */
+    max-width: 8.5in; /* Ancho máximo similar a A4/Carta */
+    min-height: 11in; /* Altura mínima */
+    box-shadow: 0 0 0.5in -0.1in rgba(0, 0, 0, 0.2); /* Sombra suave en pantalla */
+    position: relative; /* Para posicionar elementos absolutos si es necesario */
 }
 
-/* header */
-header {
-    margin: 0.5em 0 1em;
-    padding-bottom: 0.8em;
-    border-bottom: 2px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header address {
-    float: left;
-    font-style: normal;
-    line-height: 1.5;
-    font-size: 1em;
-    background: var(--background);
-    padding: 1.2em;
-    border-radius: 0.5em;
-    border-left: 3px solid var(--primary);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-header address p {
-    margin: 0.3em 0;
-    color: var(--text);
-    font-weight: 500;
-}
-
-header address p:first-child {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--primary);
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
     margin-bottom: 0.5em;
+    color: #1a2b48; /* Azul oscuro para títulos */
 }
 
-.logo-container {
-    float: right;
-    text-align: right;
+h1 {
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2em;
 }
 
-.logo-container img {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+h2 {
+    font-size: 1.2em;
+    border-bottom: 1px solid #dee2e6; /* Línea sutil bajo subtítulos */
+    padding-bottom: 0.3em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
 }
 
-.logo-container img:hover {
-    transform: scale(1.05);
+p {
+    margin-bottom: 0.8em;
 }
 
-/* article */
-article,
-article address,
-table.meta,
-table.inventory {
-    margin: 0 0 3em;
-    clear: both;
-}
-
-article:after {
-    clear: both;
-    content: "";
-    display: table;
-}
-
-article h1 {
-    clip: rect(0 0 0 0);
-    position: absolute;
-}
-
-article address {
-    float: left;
-    font-size: 125%;
+strong {
     font-weight: bold;
 }
 
-/* Información del cliente y detalles */
-.client-info {
+/* --- Encabezado --- */
+.invoice-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1em;
-    gap: 1em;
+    align-items: flex-start; /* Alinear arriba */
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #1a2b48; /* Línea gruesa separadora */
 }
 
-.info-section {
-    flex: 1;
-    background: white;
-    padding: 0.6em;
-    border-radius: 0.4em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.info-section h2 {
-    color: #000;
-    font-size: 0.9em;
-    font-weight: 600;
-    margin-bottom: 0.4em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-    background: white;
-}
-
-.info-section p {
-    margin: 0.25em 0;
-    line-height: 1.2;
-    font-size: 0.85em;
-}
-
-.info-section strong {
-    color: var(--text);
-    font-weight: 600;
-}
-
-.info-section span {
-    color: var(--text-light);
-    margin-left: 0.5em;
-}
-
-/* Totales y balance */
-.balance-section {
-    margin-top: 0.6em;
-    text-align: right;
-    padding: 0.8em;
-    background: var(--background);
-    border-radius: 0.5em;
-    border-right: 3px solid var(--success);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    width: 32%;
-    margin-left: auto;
-}
-
-.balance-item {
+.company-info {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0.25em 0;
-    color: var(--text);
-    font-size: 1em;
+    align-items: center; /* Centrar logo y dirección verticalmente */
+    gap: 1em; /* Espacio entre logo y dirección */
 }
 
-.balance-item strong {
-    margin-right: 1em;
-    color: var(--text);
-    font-weight: 600;
+.logo {
+    max-width: 150px;
+    max-height: 70px;
+    object-fit: contain; /* Asegurar que el logo no se deforme */
 }
 
-.total-amount {
-    margin-top: 0.5em;
-    padding-top: 0.5em;
-    border-top: 2px solid var(--border);
-    font-size: 1.3em;
-    color: var(--success);
-    font-weight: 700;
-    text-shadow: 1px 1px 0 rgba(0,0,0,0.05);
-}
-
-.total-amount strong {
-    color: var(--text);
-    margin-right: 1em;
-}
-
-/* table */
-table {
-    font-size: 75%;
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 2px;
-}
-
-th, td {
-    border-width: 1px;
-    padding: 0.5em;
-    position: relative;
-    text-align: left;
-    border-radius: 0.25em;
-    border-style: solid;
-}
-
-th {
-    background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
-    border-color: var(--primary-dark);
-    color: white;
-    font-weight: 600;
-    text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
-}
-
-td {
-    border-color: var(--border);
-    background: white;
-}
-
-/* table items */
-table.inventory {
-    clear: both;
-    width: 100%;
-    margin: 1em 0;
-    border-collapse: collapse;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    border-radius: 0.5em;
-    overflow: hidden;
-}
-
-table.inventory th {
-    background: white;
-    color: #000;
-    font-weight: 600;
-    text-align: center;
-    padding: 0.5em;
-    border: 1px solid var(--border);
+.company-address {
+    font-style: normal;
     font-size: 0.9em;
+    line-height: 1.4;
 }
 
-table.inventory th:nth-child(1),
-table.inventory td:nth-child(1) {
-    width: 12%;
-}
-
-table.inventory th:nth-child(2),
-table.inventory td:nth-child(2) {
-    width: 50%;
-}
-
-table.inventory th:nth-child(3),
-table.inventory td:nth-child(3) {
-    width: 13%;
-}
-
-table.inventory th:nth-child(4),
-table.inventory td:nth-child(4) {
-    width: 25%;
-}
-
-table.inventory td {
-    padding: 0.5em;
-    text-align: center;
-    border: 1px solid var(--border);
-    background: white;
-    font-size: 0.95em;
-    height: 1.3em;
-}
-
-table.inventory td:last-child {
+.invoice-title {
     text-align: right;
 }
 
-table.inventory tr:hover td {
-    background: var(--background);
+.invoice-title h1 {
+    color: #1a2b48;
+    margin: 0;
 }
 
-/* Notas adicionales */
-aside {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 0.8em;
-    position: relative;
+.invoice-number,
+.invoice-date {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.invoice-number span,
+.invoice-date span {
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* --- Información Cliente y Vehículo --- */
+.customer-vehicle-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    gap: 2em; /* Espacio entre columnas */
+}
+
+.customer-details,
+.vehicle-details {
+    width: 48%; /* Aproximadamente mitad del espacio */
+}
+
+.customer-details h2,
+.vehicle-details h2 {
+    font-size: 1.1em;
+    margin-top: 0; /* Sin margen superior para estos h2 */
+    border-bottom-color: #adb5bd; /* Gris más claro para esta línea */
+}
+
+.vehicle-details p {
+    margin-bottom: 0.3em; /* Menos espacio entre líneas de detalles del vehículo */
+}
+
+/* --- Tabla de Ítems --- */
+.invoice-items {
+    margin-bottom: 2em;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse; /* Bordes unidos */
+    font-size: 0.9em;
+}
+
+.items-table th,
+.items-table td {
+    border: 0px solid #dee2e6; /* Eliminamos borde por defecto */
+    border-bottom: 1px solid #dee2e6; /* Borde solo inferior */
+    padding: 0.8em 0.8em; /* Más padding vertical */
+    text-align: left;
+    vertical-align: top;
+}
+
+.items-table th {
+    background-color: #f8f9fa; /* Fondo muy claro */
+    font-weight: bold;
+    color: #343a40; /* Texto más oscuro */
+    text-transform: uppercase; /* Mayúsculas para destacar */
+    font-size: 0.85em; /* Ligeramente más pequeño */
+    letter-spacing: 0.05em;
+    border-bottom-width: 2px; /* Borde inferior más grueso */
+    border-color: #adb5bd; /* Color del borde inferior */
+}
+
+.items-table .col-qty {
+    width: 15%;
     text-align: center;
 }
 
-aside h1 {
-    color: #000;
-    margin: 0;
-    padding: 0.2em 0;
-    font-size: 1.2em;
-    font-weight: 600;
-    background: white;
-    border-bottom: 2px solid var(--border);
+.items-table .col-desc {
+    width: 60%;
 }
 
-.mediano {
-    font-size: 0.85em;
-    line-height: 1.4;
-    color: var(--text);
-    background: var(--background);
-    padding: 1em;
-    border-radius: 0.4em;
-    border-left: 2px solid var(--border);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+.items-table .col-price {
+    width: 25%;
+    text-align: right;
+}
+
+/* Eliminamos el rayado alterno para un look más limpio con bordes horizontales */
+/* .items-table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+} */
+
+.items-table tbody td {
+    color: #495057;
+    /* Asegurar que la última fila no tenga borde inferior si se prefiere */
+}
+
+.items-table tbody tr:last-child td {
+    border-bottom: none; /* Quitar borde inferior de la última fila */
+}
+
+/* --- Tabla de Totales --- */
+.invoice-summary {
+    display: flex;
+    justify-content: flex-end; /* Alinear tabla a la derecha */
+    margin-bottom: 2em;
+}
+
+.totals-table {
+    width: 40%; /* Ancho de la tabla de totales */
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+.totals-table th,
+.totals-table td {
+    padding: 0.6em 0.8em;
+    text-align: right;
+}
+
+.totals-table th {
     text-align: left;
+    font-weight: normal;
+    color: #555;
+    width: 60%;
 }
 
-.negrilla {
-    font-weight: 600;
-    color: var(--primary);
+.totals-table td {
+    font-weight: bold;
+    color: #333;
 }
 
-/* Botones */
-.add, .cut {
-    display: none;
+.totals-table .total-row th,
+.totals-table .total-row td {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #1a2b48;
+    border-top: 2px solid #1a2b48; /* Línea gruesa antes del total */
+    padding-top: 0.8em;
 }
 
-/* Ajustes para impresión */
+/* --- Observaciones --- */
+.observations {
+    margin-bottom: 2em;
+    font-size: 0.9em;
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+.observations h2 {
+    margin-top: 0;
+    font-size: 1.1em;
+    border-bottom: none;
+}
+
+/* --- Pie de Página / Notas --- */
+.notes-section {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid #dee2e6; /* Línea separadora sutil */
+    font-size: 0.85em;
+    color: #6c757d; /* Gris más claro para notas */
+}
+
+.notes-section h2 {
+    font-size: 1em;
+    color: #495057;
+    border-bottom: none;
+    margin-bottom: 0.8em;
+}
+
+.bank-details {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    border-left: 3px solid #adb5bd;
+}
+
+.bank-details p {
+    margin-bottom: 0.2em;
+}
+
+.thank-you {
+    text-align: center;
+    margin-top: 2em;
+    font-style: italic;
+    color: #495057;
+}
+
+/* --- Estilos de Impresión --- */
 @media print {
     html {
-        background: none;
-        padding: 0;
+        font-size: 9pt; /* Ligeramente más pequeño para impresión si es necesario */
+        background-color: #fff;
     }
 
     body {
+        padding: 0.5in; /* Márgenes de impresión estándar */
         box-shadow: none;
         margin: 0;
-        padding: 0.5in;
+        max-width: 100%;
     }
 
-    .add, .cut {
-        display: none;
+    .invoice-header {
+        border-bottom-color: #000; /* Asegurar líneas negras en impresión */
     }
 
-    th {
-        background: var(--primary-light) !important;
+    h1, h2, h3, h4, h5, h6 {
+        color: #000; /* Texto negro para impresión */
+    }
+
+    .items-table th {
+        background-color: #eee !important; /* Fondo gris claro forzado */
+        color: #000 !important;
         -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        color-adjust: exact;
     }
+
+    .items-table th,
+    .items-table td {
+        border-color: #ccc !important; /* Bordes grises claros */
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+     .items-table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9 !important; /* Rayado muy sutil forzado */
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    .totals-table .total-row th,
+    .totals-table .total-row td {
+        color: #000 !important;
+        border-top-color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    .observations {
+        background-color: #f9f9f9 !important;
+        border-color: #eee !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    .notes-section {
+        color: #333 !important; /* Texto más oscuro para notas en impresión */
+        border-top-color: #ccc !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    .bank-details {
+        border-left-color: #aaa !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    /* Ocultar elementos no deseados en impresión */
+    /* .elemento-a-ocultar { display: none; } */
+}
+
+@page {
+    margin: 0.5in; /* Márgenes de la página al imprimir */
+    size: A4; /* O 'letter' según necesidad */
 }
