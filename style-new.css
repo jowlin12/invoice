@@ -1,3 +1,6 @@
+/* --- Importación de Fuentes Google Fonts (Inter) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* --- Reset Básico y Configuración Global --- */
 *,
 *::before,
@@ -5,382 +8,428 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: inherit; /* Heredar fuente definida en body */
 }
 
 html {
-    font-size: 10.5pt;
-    line-height: 1.6;
-    background-color: #f8f9fa; /* Gris estándar muy claro */
+    font-size: 10pt;
+    line-height: 1.5;
+    background-color: #F6F8FC;
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #495057; /* Gris oscuro estándar para texto */
-    background-color: #fff; /* Fondo blanco para el contenido */
-    margin: 0 auto; /* Centrar en pantalla */
-    padding: 0.75in; /* Márgenes tipo documento */
-    max-width: 8.5in; /* Ancho máximo similar a A4/Carta */
-    min-height: 11in; /* Altura mínima */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra un poco más difusa */
-    position: relative; /* Para posicionar elementos absolutos si es necesario */
-    border-radius: 8px; /* Esquinas redondeadas para el contenedor principal */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #5E6470;
+    background-color: #F9FAFC;
+    margin: 0 auto;
+    padding: 11mm 14mm 16mm 14mm;
+    width: 210mm;
+    height: 297mm;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-    margin-bottom: 0.5em;
-    color: #343a40; /* Gris carbón para títulos */
+/* --- Títulos --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    color: #1A1C21;
+    margin-bottom: 0;
 }
 
 h1 {
-    font-size: 1.8em;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.2em;
-}
-
-h2 {
-    font-size: 1.2em;
-    border-bottom: 1px solid #dee2e6; /* Línea sutil bajo subtítulos */
-    padding-bottom: 0.3em;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
 }
 
 p {
-    margin-bottom: 0.8em;
+    margin-bottom: 0;
 }
 
 strong {
-    font-weight: bold;
+    font-weight: 600;
+    color: #1A1C21;
 }
 
-/* --- Encabezado --- */
-.invoice-header {
+/* --- Cabecera (Figma: y:32) --- */
+.header-section {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinear arriba */
-    margin-bottom: 2em;
-    padding-bottom: 1em;
-    border-bottom: 2px solid #343a40; /* Gris carbón para línea separadora */
+    align-items: center;
+    height: 18mm;
+    /* 50px logo height equivalent */
+    margin-bottom: 11mm;
+    /* 30px equivalent to reach y:112 */
 }
 
-.company-info {
+.invoice-title-block {
     display: flex;
-    align-items: center; /* Centrar logo y dirección verticalmente */
-    gap: 1em; /* Espacio entre logo y dirección */
+    flex-direction: column;
+    gap: 2px;
+}
+
+.invoice-id {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #5E6470;
+    line-height: 16px;
 }
 
 .logo {
-    max-width: 150px;
-    max-height: 70px;
-    object-fit: contain; /* Asegurar que el logo no se deforme */
+    height: 20mm;
+    /* Agrandado a 75px */
+    width: auto;
+    max-width: 45mm;
+    /* Agrandado a 170px */
+    object-fit: contain;
 }
 
-.company-address {
-    font-style: normal;
-    font-size: 0.9em;
-    line-height: 1.4;
-}
-.company-address strong {
-    display: block; /* Asegura que el nombre esté en su propia línea */
-    margin-bottom: 0.2em;
-}
-
-.invoice-title {
-    text-align: right;
+/* --- Rejilla de Información en 3 Columnas (Figma: y:112 a y:224) --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: 59mm 64mm 59mm;
+    /* 166px, 182px, 167px proportional widths */
+    border-top: 0.5px solid #D7DAE0;
+    border-bottom: 0.5px solid #D7DAE0;
+    height: 40mm;
+    /* 112px */
+    box-sizing: border-box;
 }
 
-.invoice-title h1 {
-    color: #343a40; /* Gris carbón */
-    margin: 0;
-}
-
-.invoice-number,
-.invoice-date {
-    font-size: 0.9em;
-    color: #6c757d; /* Gris estándar */
-}
-
-.invoice-number span,
-.invoice-date span {
-    font-weight: bold;
-    color: #495057;
-}
-
-/* Eliminado: .invoice-validity styles */
-
-/* --- Información Cliente y Vehículo --- */
-.customer-vehicle-info {
+.info-col {
+    padding: 18px 24px;
+    /* Cambiado a px para comportamiento estable en todos los navegadores */
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 2em;
-    gap: 2em; /* Espacio entre columnas */
+    flex-direction: column;
+    gap: 8px;
+    /* 8px de separación interna */
+    box-sizing: border-box;
+    justify-content: flex-start;
 }
 
-.customer-details {
-    width: 35%; /* Más estrecho para el cliente */
-}
-.vehicle-details {
-    width: 60%; /* Más ancho para el vehículo */
+.info-col:first-child {
+    padding-left: 0;
 }
 
-.customer-details h2,
-.vehicle-details h2 {
-    font-size: 1.1em;
-    margin-top: 0;
-    border-bottom-color: #ced4da; /* Gris más claro */
+.info-col:last-child {
+    padding-right: 0;
 }
 
-.vehicle-details p {
-    margin-bottom: 0.3em; /* Menos espacio entre líneas de detalles del vehículo */
+.info-col:not(:last-child) {
+    border-right: 0.5px solid #D7DAE0;
 }
 
-/* --- Tabla de Ítems --- */
+.col-title {
+    font-size: 10px;
+    font-weight: 600;
+    color: #1A1C21;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.col-content {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #5E6470;
+}
+
+.col-content strong {
+    font-size: 10px;
+    font-weight: 600;
+    color: #5E6470;
+}
+
+.client-vehicle-info {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 0;
+    /* Removido para alinear perfectamente con el nombre del cliente */
+    padding-right: 16px;
+    /* Empuja los valores hacia la izquierda para dar suficiente espacio */
+}
+
+.client-vehicle-info .info-row {
+    display: flex;
+    gap: 8px;
+    font-size: 9.5px;
+    line-height: 13px;
+}
+
+.client-vehicle-info .info-label {
+    font-weight: 600;
+    color: #1A1C21;
+    white-space: nowrap;
+}
+
+.client-vehicle-info .info-value {
+    color: #5E6470;
+}
+
+.client-detail {
+    margin-top: 4px;
+    font-size: 9.5px;
+    color: #5E6470;
+}
+
+/* --- Tabla de Ítems (Figma: table starts at y:264) --- */
 .invoice-items {
-    margin-bottom: 2em;
-}
-
-/* Estilos para el contenedor de la tabla redondeada */
-.table-wrapper {
-    border-radius: 6px; /* Redondez más sutil */
-    overflow: hidden;
-    border: 1px solid #dee2e6; /* Borde gris estándar */
-    margin-top: 1em;
+    margin-top: 14mm;
+    /* 40px gap between grid bottom y:224 and table y:264 */
+    margin-bottom: 0;
 }
 
 .items-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9em;
-    /* Quitamos bordes individuales de la tabla, el wrapper se encarga */
-    border: none;
-}
-
-.items-table th,
-.items-table td {
-    border-bottom: 1px solid #dee2e6; /* Borde inferior gris estándar */
-    padding: 0.8em 0.8em;
-    text-align: left;
-    vertical-align: top;
-    border-left: none; /* Asegurar no bordes laterales */
-    border-right: none;
+    font-size: 10px;
 }
 
 .items-table th {
-    background-color: #e9ecef; /* Gris claro estándar */
-    font-weight: bold;
-    color: #495057; /* Gris oscuro estándar */
-    text-transform: uppercase;
-    font-size: 0.85em;
-    letter-spacing: 0.05em;
-    border-bottom: 2px solid #adb5bd; /* Borde inferior gris medio */
-    border-top: none;
+    color: #1A1C21;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+    padding: 0 0 4mm 0;
+    /* 12px height */
+    text-align: left;
+    border-bottom: 0.5px solid #D7DAE0;
+}
+
+.items-table td {
+    padding: 3mm 0;
+    /* Compact padding to make sure 5 rows fit perfectly on A4 */
+    border-bottom: 0.5px solid #D7DAE0;
+    color: #5E6470;
+    vertical-align: middle;
+    font-size: 10px;
+    line-height: 14px;
 }
 
 .items-table .col-qty {
-    width: 15%;
+    width: 14%;
+    /* 73px / 515px */
     text-align: center;
+    font-weight: 500;
 }
 
 .items-table .col-desc {
     width: 60%;
+    /* 307px / 515px */
+    font-weight: 600;
+    color: #1A1C21;
 }
 
 .items-table .col-price {
-    width: 25%;
+    width: 16%;
+    /* 84px / 515px */
     text-align: right;
+    font-weight: 500;
 }
 
-/* Restauramos un rayado muy sutil si se desea, o mantener sin él */
- .items-table tbody tr:nth-child(odd) {
-    background-color: #f8f9fa; /* Rayado muy sutil */
- }
-
-.items-table tbody td {
-    color: #495057; /* Gris oscuro estándar */
+.items-table .col-total {
+    width: 10%;
+    /* 51px / 515px */
+    text-align: right;
+    font-weight: 500;
 }
 
-/* Ajuste: La última fila SÍ debe tener borde si usamos wrapper,
-   pero el wrapper lo oculta si es necesario.
-   Si queremos quitarlo explícitamente: */
- .items-table tbody tr:last-child td {
-     border-bottom: none;
- }
-
-/* --- Tabla de Totales --- */
-.invoice-summary {
+.summary-row {
     display: flex;
-    justify-content: flex-end; /* Alinear tabla a la derecha */
-    margin-bottom: 2em;
+    justify-content: space-between;
+    font-size: 10px;
+    line-height: 14px;
+    padding: 3.5mm 0;
+    border-bottom: 0.5px solid #D7DAE0;
 }
 
-.totals-table {
-    width: 40%; /* Ancho de la tabla de totales */
-    border-collapse: collapse;
-    font-size: 0.95em;
+.summary-row .label {
+    color: #1A1C21;
+    font-weight: 600;
 }
 
-.totals-table th,
-.totals-table td {
-    padding: 0.6em 0.8em;
-    text-align: right;
+.summary-row .val {
+    font-weight: 500;
+    color: #5E6470;
 }
 
-.totals-table th {
-    text-align: left;
-    font-weight: normal;
-    color: #667; /* Gris medio */
-    width: 60%;
+.total-due-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1.5px solid #e4292c;
+    border-bottom: 1.5px solid #e4292c;
+    padding: 3.5mm 0;
 }
 
-.totals-table td {
-    font-weight: bold;
-    color: #444; /* Gris oscuro */
+.total-due-block .label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #e4292c;
+    line-height: 14px;
 }
 
-.totals-table .total-row th,
-.totals-table .total-row td {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #343a40; /* Gris carbón */
-    border-top: 2px solid #343a40; /* Gris carbón */
-    padding-top: 0.8em;
+.total-due-block .val {
+    font-size: 10px;
+    font-weight: 700;
+    color: #e4292c;
+    line-height: 14px;
 }
 
-/* --- Observaciones --- */
-.observations {
-    margin-bottom: 2em;
-    font-size: 0.9em;
-    background-color: #f8f9fa; /* Fondo gris muy claro */
-    padding: 1em 1.2em;
-    border-radius: 6px;
-    border: 1px solid #e9ecef; /* Borde gris claro */
-    color: #495057; /* Texto gris oscuro estándar */
+/* --- Sección Inferior: Observaciones (Izq) y Totales (Der) --- */
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14mm;
+    /* 40px gap */
+    margin-top: 6mm;
+    /* Subido cerca de la tabla según la foto */
+    margin-bottom: 0;
 }
 
-.observations h2 {
-    margin-top: 0;
-    font-size: 1.1em;
-    border-bottom: none;
+.bottom-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6mm;
+    /* Espacio entre observaciones y métodos de pago */
 }
 
-/* --- Pie de Página / Notas --- */
-.notes-section {
-    margin-top: 3em;
-    padding-top: 1em;
-    border-top: 1px solid #ced4da; /* Gris claro */
-    font-size: 0.85em;
-    color: #6c757d;
+.bottom-right {
+    width: 72mm;
+    /* 203px */
+    min-width: 72mm;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
-.notes-section h2 {
-    font-size: 1em;
-    color: #495057; /* Mantenemos gris oscuro para este título */
-    border-bottom: none;
-    margin-bottom: 0.8em;
+.totals-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
-.bank-details {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-    padding-left: 1em;
-    border-left: 3px solid #adb5bd;
+.terms-block {
+    font-size: 8px;
+    line-height: 12px;
+    color: #868DA6;
 }
 
-/* Eliminado: .payment-terms styles */
-
-.bank-details p {
-    margin-bottom: 0.2em;
+.terms-block h3 {
+    font-size: 8px;
+    font-weight: 600;
+    color: #868DA6;
+    margin-bottom: 2px;
+    text-transform: none;
+    letter-spacing: normal;
 }
 
-.thank-you {
-    text-align: center;
-    margin-top: 2em;
-    font-style: italic;
-    color: #6c757d;
+.terms-block p {
+    font-size: 8px;
+    line-height: 12px;
+    color: #868DA6;
 }
 
-/* Eliminado: .signature-area styles */
+/* --- Métodos de Pago --- */
+.payments-section {
+    margin-top: auto;
+    /* Empuja los métodos de pago, el agradecimiento y el footer al fondo */
+    margin-bottom: 0;
+}
+
+/* --- Mensaje (Figma: y:722) --- */
+.thanks-message {
+    margin-top: 6.4mm;
+    /* Distancia fija y compacta debajo de métodos de pago */
+    margin-bottom: 0;
+}
+
+.thanks-message h4 {
+    font-size: 10px;
+    font-weight: 600;
+    color: #1A1C21;
+    line-height: 14px;
+    margin-bottom: 4px;
+}
+
+.thanks-message p {
+    font-size: 10px;
+    color: #5E6470;
+    line-height: 14px;
+}
+
+/* --- Footer (Figma: y:796) --- */
+.footer-line {
+    border-top: 0.5px solid #D7DAE0;
+    padding-top: 4.2mm;
+    /* 12px */
+    margin-top: 11.3mm;
+    /* 32px gap below thanks-message y:764 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    line-height: 14px;
+    color: #5E6470;
+    font-weight: 500;
+}
+
+.footer-line .separator {
+    color: #D7DAE0;
+    margin: 0 8px;
+}
 
 /* --- Estilos de Impresión --- */
 @media print {
     html {
-        font-size: 9pt; /* Ligeramente más pequeño para impresión si es necesario */
-        background-color: #fff;
+        font-size: 9pt;
+        background-color: #ffffff;
     }
 
     body {
-        padding: 0.5in; /* Márgenes de impresión estándar */
+        padding: 0;
         box-shadow: none;
         margin: 0;
         max-width: 100%;
+        background-color: #ffffff;
     }
 
-    .invoice-header {
-        border-bottom-color: #000; /* Asegurar líneas negras en impresión */
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: #000; /* Texto negro para impresión */
-    }
-
-    .items-table th {
-        background-color: #eee !important; /* Fondo gris claro forzado */
-        color: #000 !important;
-        -webkit-print-color-adjust: exact;
-        color-adjust: exact;
+    .info-grid,
+    .info-col {
+        border-color: #D7DAE0 !important;
     }
 
     .items-table th,
-    .items-table td {
-        border-color: #ccc !important; /* Bordes grises claros */
+    .items-table td,
+    .footer-line {
+        border-color: #D7DAE0 !important;
+    }
+
+    .total-due-block {
+        border-color: #e4292c !important;
         -webkit-print-color-adjust: exact;
         color-adjust: exact;
     }
-
-     .items-table tbody tr:nth-child(odd) {
-        background-color: #f9f9f9 !important; /* Rayado muy sutil forzado */
-        -webkit-print-color-adjust: exact;
-        color-adjust: exact;
-    }
-
-    .totals-table .total-row th,
-    .totals-table .total-row td {
-        color: #000 !important;
-        border-top-color: #000 !important;
-        -webkit-print-color-adjust: exact;
-        color-adjust: exact;
-    }
-
-    .observations {
-        background-color: #f9f9f9 !important;
-        border-color: #eee !important;
-        -webkit-print-color-adjust: exact;
-        color-adjust: exact;
-    }
-
-    .notes-section {
-        color: #333 !important; /* Texto más oscuro para notas en impresión */
-        border-top-color: #ccc !important;
-        -webkit-print-color-adjust: exact;
-        color-adjust: exact;
-    }
-
-    .bank-details {
-        border-left-color: #aaa !important;
-        -webkit-print-color-adjust: exact;
-        color-adjust: exact;
-    }
-
-    /* Ocultar elementos no deseados en impresión */
-    /* .elemento-a-ocultar { display: none; } */
 }
 
 @page {
-    margin: 0.5in; /* Márgenes de la página al imprimir */
-    size: A4; /* O 'letter' según necesidad */
+    margin: 0.4in;
+    size: A4;
 }
